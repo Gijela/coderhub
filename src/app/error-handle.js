@@ -17,12 +17,16 @@ const errorHandler = (error, ctx) => {
       message = '用户名不存在'
       break;
     case errorTypes.PASSWORD_IS_INCORRENT:
-      status = 400 // 密码错误
+      status = 401 // 密码错误
       message = '密码错误'
       break;
     case errorTypes.UNAUTHIRIZATION:
       status = 401 // 没有权限
       message = '未授权的token'
+      break;
+    case errorTypes.UNPERMISSION:
+      status = 401 // 没有权限
+      message = '您不具备此操作的权限'
       break;
     default:
       status = 404
